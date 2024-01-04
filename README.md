@@ -58,6 +58,8 @@ class CouicCouic implements Gossiping {
 }
 ~~~
 
+
+
 2. La composition est le fait d'avoir une instance de classe dans une autre classe, alors que l'héritage est le fait de baser la définition d'une classe sur une autre classe. Dans le cas de l'héritage, la classe enfant récupérera tout le contenu de la classe parent. Il faut préférer la composition à l'héritage car la composition est beaucoup plus flexible, et permet de modifier les comportements lors de l'exécution, alors que l'héritage ne permet de le faire qu'à la compilation. De plus, l'héritage fait hériter d'une interface mais également de son implémentation, ce qui brise le principe d'encapsulation (le fait que l'état d'un objet soit invisible depuis l'extérieur), alors que le principe d'encapsulation est préservé avec la composition  car un objet composé d'un autre objet n'a besoin de connaître que son interface pour s'en servir.
 Enfin, la composition permet d'éviter le problème du diamant, qui peut survenir dans le cas d'héritages multiples.
 
@@ -108,6 +110,7 @@ class Animal {
 ~~~
 
 
+
 3. Une interface désigne l'ensemble des signatures de méthode d'un objet. Elle permet de définir des méthodes (signatures) qu'une classe doit implémenter, sans avoir à définir coment ces méthodes fonctionnent. Une interface est une classe abstraite qui ne peut contenir que des méthodes abstraites (c'est à dire sans propriétés ni implémentations). C’est du sucre syntaxique pour avoir une classe totalement abstraite.
 Cela permet d'utiliser des objets de façon interchangeable.
 
@@ -133,7 +136,7 @@ L'inconvénient de ce pattern, est que le builder nécessite de créer beaucoup 
 
 ### Diagramme de classe UML du pattern
 
-![Diagramme de classe du Builder](/images/ordee_diagramme_uml.drawio "Diagramme de classe du Builder").
+![Diagramme de classe du Builder](/images/order_diagramme_uml.drawio "Diagramme de classe du Builder").
 
 La classe Address et la classe Order ont une relation d'aggrégation, et la classe Order et la classe OrderBuilder une relation de composition.
 La classe OrderBuilder est représentée en violet car elle participe au design pattern.
