@@ -136,7 +136,7 @@ L'inconvénient de ce pattern, est que le builder nécessite de créer beaucoup 
 
 ### Diagramme de classe UML du pattern
 
-![Diagramme de classe du Builder](/images/order_diagramme_uml "Diagramme de classe du Builder").
+![Diagramme de classe du Builder][Diagramme de classe du Builder](/images/order_diagramme_uml)
 
 La classe Address et la classe Order ont une relation d'aggrégation, et la classe Order et la classe OrderBuilder une relation de composition.
 La classe OrderBuilder est représentée en violet car elle participe au design pattern.
