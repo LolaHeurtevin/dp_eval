@@ -15,7 +15,7 @@
 
 1. Une interface désigne l'ensemble des signatures des méthodes d'un objet, c'est à dire que la fonction a un nom, des arguments et entrée et/ou en sortie, mais qu'elle n'a pas encore de contenu (la partie entre les accolades). À l'inverse, une méthode implémentée est une méthode qui est totalement écrite (dont la partie entre les accolades). Il est ainsi plus avantageux de programmer vers une interface puisque cela permet une plus grande flexibilité dans le code. En programmant vers une interface, il est possible d'envoyer le même message aux objets que le client manipule tout en obtenant un comportement différent (à l'aide de diférentes implémentations).
 
-![Diagramme présentant l'avantage d'une interface](/images/diagramme-implementation-interface.png "Diagramme présentant l'avantage d'une interface").
+![Diagramme présentant l'avantage d'une interface](/images/diagramme-implementation-interface.png "Diagramme présentant l'avantage d'une interface")
 
 Reprenons l'exemple fait en cours, avec les classes de canards. Colvert et RubberDuck sont tous deux des canards qui héritent de la classe Duck, ils nagent tous les deux, cependant ils ne produisent pas le même son, par conséquent il n'est pas judicieux d'implémenter la fonction gossiping() dans la classe Duck, car cela nécessiterai de devoir réécrire par dessus la fonction chaque fois qu'un canard ne fais pas "coin coin". À la place, on créer une interface Gossiping qui sera implémentée dans le classe CoinCoin.
 
@@ -136,7 +136,7 @@ L'inconvénient de ce pattern, est que le builder nécessite de créer beaucoup 
 
 ### Diagramme de classe UML du pattern
 
-![Diagramme de classe du Builder](./images/order_diagramme_uml.png "Diagramme de classe du Builder").
+![Diagramme de classe du Builder](/images/order_diagramme_uml.png "Diagramme de classe du Builder")
 
 La classe Address et la classe Order ont une relation d'aggrégation, et la classe Order et la classe OrderBuilder une relation de composition.
 La classe OrderBuilder est représentée en violet car elle participe au design pattern.
