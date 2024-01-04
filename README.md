@@ -43,7 +43,7 @@ interface Gossiping{
     public function gossip();
 }
 
-//ici on créer une classe par comportement sonore. Ainsi, si on devait ajouter un nouveau canard qui produit un son différent, tout le code ne serait pas à revoir puisqu'il suffirait d'ajouter une nouvele classe qui implémente Gossiping
+//ici on créer une classe par comportement sonore. Ainsi, si on devait ajouter un nouveau canard qui produit un son différent, tout le code ne serait pas à revoir puisqu'il suffirait d'ajouter une nouvelle classe qui implémente Gossiping
 class CoinCoin implements Gossiping {
     public function gossip() {
         echo "Coin coin";
