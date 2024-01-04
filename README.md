@@ -43,7 +43,8 @@ interface Gossiping{
     public function gossip();
 }
 
-//ici on créer une classe par comportement sonore. Ainsi, si on devait ajouter un nouveau canard qui produit un son différent, tout le code ne serait pas à revoir puisqu'il suffirait d'ajouter une nouvelle classe qui implémente Gossiping
+//ici on créer une classe par comportement sonore. Ainsi, si on devait ajouter un nouveau canard qui produit un son différent,
+//tout le code ne serait pas à revoir puisqu'il suffirait d'ajouter une nouvelle classe qui implémente Gossiping
 class CoinCoin implements Gossiping {
     public function gossip() {
         echo "Coin coin";
@@ -76,7 +77,8 @@ class Animal {
   class Dog {
   //Le couplage entre Dog et Animal est réduit car Dog ne dépend que de l'interface publique de Animal et pas de son implémentation.
   
-  //Les détails internes de Animal sont encapsulés à l'intérieur de la classe. La classe Dog utilise Animal sans avoir à se soucier de la façon dont Animal est implémenté. Le principe d'encapsulation est donc respecté.
+  //Les détails internes de Animal sont encapsulés à l'intérieur de la classe. La classe Dog utilise Animal sans avoir
+  //à se soucier de la façon dont Animal est implémenté. Le principe d'encapsulation est donc respecté.
     constructor(name) {
       this.animal = new Animal(name)
     }
