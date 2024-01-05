@@ -5,7 +5,7 @@
 - [Réponses aux questions](#réponses-aux-questions)
 - [Design Pattern Builder](#design-pattern-builder)
   - [Contexte](#contexte)
-  - [Avantages/Inconvénients](#avantages/inconénients)
+  - [Avantages/Inconvénients](#avantages-et-inconvénients)
   - [Diagramme de classe UML du pattern](#diagramme-de-classe-uml-du-pattern)
   - [Lancer le projet](#lancer-le-projet)
 - [Références](#références)
@@ -125,7 +125,7 @@ Pour ce projet, j'ai choisi de prendre l'exemple d'une commande passée auprès 
 Le design pattern builder permet de pallier ce problème.
 
 
-### Avantages/Inconvénients
+### Avantages et Inconvénients
 
 L'avantage principal lié à ce pattern est qu'il construit les objets étape par étape, ce qui rend possible de n'appeler que certaines étapes de la construction si on le souhaite (ce qui est utile pour les champs optionnels comme *phoneNumber* et *email*). Il est également possible de déléguer les étapes ou de les exécuter de manière récursive. 
 Le code est ainsi réutilisable pour créer différentes représentations des objets.
