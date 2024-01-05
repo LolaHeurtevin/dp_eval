@@ -13,7 +13,7 @@
 
 ## Réponses aux questions
 
-1. Une interface désigne l'ensemble des signatures des méthodes d'un objet, c'est à dire que la fonction a un nom, des arguments et entrée et/ou en sortie, mais qu'elle n'a pas encore de contenu (la partie entre les accolades). À l'inverse, une méthode implémentée est une méthode qui est totalement écrite (dont la partie entre les accolades). Il est ainsi plus avantageux de programmer vers une interface puisque cela permet une plus grande flexibilité dans le code. En programmant vers une interface, il est possible d'envoyer le même message aux objets que le client manipule tout en obtenant un comportement différent (à l'aide de diférentes implémentations).
+1. Une interface désigne l'ensemble des signatures des méthodes d'un objet, une méthode qui ne possède qu'une signature n'est pas implémentée. À l'inverse, une méthode implémentée est une méthode dont la procédure est écrite. Il est ainsi plus avantageux de programmer vers une interface puisque cela permet une plus grande flexibilité dans le code. En programmant vers une interface, il est possible d'envoyer le même message aux objets que le client manipule tout en obtenant un comportement différent (à l'aide de différentes implémentations).
 
 ![Diagramme présentant l'avantage d'une interface](/images/diagramme-implementation-interface.png "Diagramme présentant l'avantage d'une interface")
 
@@ -60,10 +60,10 @@ class CouicCouic implements Gossiping {
 
 
 
-2. La composition est le fait d'avoir une instance de classe dans une autre classe, alors que l'héritage est le fait de baser la définition d'une classe sur une autre classe. Dans le cas de l'héritage, la classe enfant récupérera tout le contenu de la classe parent. Il faut préférer la composition à l'héritage car la composition est beaucoup plus flexible, et permet de modifier les comportements lors de l'exécution, alors que l'héritage ne permet de le faire qu'à la compilation. De plus, l'héritage fait hériter d'une interface mais également de son implémentation, ce qui brise le principe d'encapsulation (le fait que l'état d'un objet soit invisible depuis l'extérieur), alors que le principe d'encapsulation est préservé avec la composition  car un objet composé d'un autre objet n'a besoin de connaître que son interface pour s'en servir.
+2. La composition est le fait d'avoir une instance de classe dans une autre classe *(a un)*, alors que l'héritage est le fait de baser la définition d'une classe sur une autre classe *(est un)*. Dans le cas de l'héritage, la classe enfant récupérera tout le contenu de la classe parent. Il faut préférer la composition à l'héritage car la composition est beaucoup plus flexible, et permet de modifier les comportements lors de l'exécution, alors que l'héritage ne permet de le faire qu'à la compilation. De plus, l'héritage fait hériter d'une interface mais également de son implémentation, ce qui brise le principe d'encapsulation (le fait que l'état d'un objet soit invisible depuis l'extérieur), alors que le principe d'encapsulation est préservé avec la composition car un objet composé d'un autre objet n'a besoin de connaître que son interface pour s'en servir.
 Enfin, la composition permet d'éviter le problème du diamant, qui peut survenir dans le cas d'héritages multiples.
 
-Prenons un exemple pour illustrer cela. Voici une classe Animal, et une classe Dog, qui est composée de Animal.
+Prenons un exemple pour illustrer cela. Voici une classe Animal, et une classe Dog, qui est composée de Animal. Grace à la composition, le code est plus flexible, encapsulé, moins couplé et plus facile à modifier.
 
 ~~~
 class Animal {
@@ -111,8 +111,7 @@ class Animal {
 
 
 
-3. Une interface désigne l'ensemble des signatures de méthode d'un objet. Elle permet de définir des méthodes (signatures) qu'une classe doit implémenter, sans avoir à définir coment ces méthodes fonctionnent. Une interface est une classe abstraite qui ne peut contenir que des méthodes abstraites (c'est à dire sans propriétés ni implémentations). C’est du sucre syntaxique pour avoir une classe totalement abstraite.
-Cela permet d'utiliser des objets de façon interchangeable.
+3. Une interface désigne l'ensemble des signatures de méthode d'un objet. L'interface est synonyme de type de l'objet. N'importe quel message qui correspond à une signature de l'interface peut être envoyé à cet objet. De plus, deux objets peuvent posséder une implémentationn différents pour la même interface, ce qui signifient qu'ils agissent différement. 
 
 
 ## Design pattern Builder
@@ -120,16 +119,17 @@ Cela permet d'utiliser des objets de façon interchangeable.
 ### Contexte
 
 Le design pattern builder permet de construire des objets complexes étape par étape, et de rendre le code plus lisible.
-Le design builder est très utile lorsqu'on souhaite créer des objets qui possèdent plusieurs éléments internes liés les uns aux autres ou de plusieurs éléments requis et optionnels.
+Le design builder est très utile lorsqu'on souhaite créer des objets qui possèdent plusieurs éléments internes liés les uns aux autres ou de plusieurs éléments requis et optionnels, car il permet de produire différentes variations d'un objet en utilisant le même code.
 
-Pour ce projet, j'ai choisi de prendre l'exemple d'une commande passée auprès d'une boutique. Une commande est composée de plusieurs attributs, dont certains sont obligatoires (identifiant, adresse, article) et certains sont facultatifs (numéro de téléphone, adresse email). L'inconvénient de travailler avec des champs facultatifs qui peuvent rendre plus confuse la création d'un objet et le code moins lisible. Builder permet de pallier ce problème.
+Pour ce projet, j'ai choisi de prendre l'exemple d'une commande passée auprès d'une boutique. Une commande est composée de plusieurs attributs, dont certains sont obligatoires (identifiant, adresse, article) et certains sont facultatifs (numéro de téléphone, adresse email). Le problème est que travailler avec des champs facultatifs rend plus confuse la création d'un objet. Par exemple, dans le cas de la création de commande on peut se retrouver avec une création d'objet qui ressemble à *order(id, article, undefined, address, undefined)*. Dans ce cas, le code moins lisible car à première vue on ne sait pas à quels attributs correspondent les valeurs undefined. 
+Le design pattern builder permet de pallier ce problème.
 
 
 ### Avantages/Inconvénients
 
-L'avantage principal lié à ce pattern est qu'il construit les objets étape par étape, ce qui rend possible de n'appeler que certaines étapes de la construction si on le souhaite (ce qui est utile pour les champs optionnels). Il est également possible de déléguer les étapes ou de les exécuter de manière récursive. 
-Le code est réutilisable pour différentes représentations des objets mais cela ne sera pas présenté dans le code. 
-Enfin, ce design pattern respecte le principe de responsabilité unique, ce qui signifie que chaque classe ou fonction n'a qu'une seule tâche.
+L'avantage principal lié à ce pattern est qu'il construit les objets étape par étape, ce qui rend possible de n'appeler que certaines étapes de la construction si on le souhaite (ce qui est utile pour les champs optionnels comme *phoneNumber* et *email*). Il est également possible de déléguer les étapes ou de les exécuter de manière récursive. 
+Le code est ainsi réutilisable pour créer différentes représentations des objets.
+Enfin, ce design pattern respecte le principe de responsabilité unique, ce qui signifie que chaque classe ou fonction n'a qu'une seule tâche. Par exemple, les fonctions *setPhoneNumber()* et *setEmail()* ne s'occupent respectivement que d'attribuer une valeur au champ *phoneNumber* ou *email*.
 
 L'inconvénient de ce pattern, est que le builder nécessite de créer beaucoup de nouvelles classes (une seule dans le cas de l'exemple que j'ai choisi d'illustrer, car il est très simple), ce qui accroit la complexité générale du code.
 
@@ -160,7 +160,7 @@ cd dp_eval
 node builder.js
 ~~~
 
-Cela lancera le projet tel quel, il est cependant possible de choisir les éléments de l'objet qui s'affichent en modifiant directement le code dans le fichier builder.js. Par défaut il affiche l'identifiant de la commande, l'article commandé, l'adresse et le numéro de téléphone, il est possible de changer la valeur du numéro de téléphone pour undefined et/ou de donner une valeur au champ email.
+Cela lancera le projet tel quel, il est cependant possible de choisir les éléments de l'objet qui s'affichent en modifiant directement le code dans le fichier builder.js. Par défaut il affiche l'identifiant de la commande, l'article commandé, l'adresse et le numéro de téléphone, il est possible de changer la valeur du numéro de téléphone pour *undefined* et/ou de donner une valeur au champ email.
 
 
 ## Références

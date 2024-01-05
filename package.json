@@ -1,0 +1,20 @@
+{
+  "name": "dp_eval",
+  "version": "1.0.0",
+  "description": "Implémentation du design pattern builder",
+  "main": "builder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/LolaHeurtevin/dp_eval"
+  },
+  "keywords": [
+    "design",
+    "pattern",
+    "builder"
+  ],
+  "author": "Lola Heurtevin",
+  "license": "ISC"
+}
