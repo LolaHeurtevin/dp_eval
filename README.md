@@ -2,13 +2,13 @@
 
 ## Table des matières 
 
-- [Réponses aux questions](#reponses-aux-questions)
+- [Réponses aux questions](#réponses-aux-questions)
 - [Design Pattern Builder](#design-pattern-builder)
   - [Contexte](#contexte)
-  - [Avantages/Inconvénients](#avantages/inconenients)
+  - [Avantages/Inconvénients](#avantages/inconénients)
   - [Diagramme de classe UML du pattern](#diagramme-de-classe-uml-du-pattern)
   - [Lancer le projet](#lancer-le-projet)
-- [Références](#references)
+- [Références](#références)
 
 
 ## Réponses aux questions
