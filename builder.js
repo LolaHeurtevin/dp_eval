@@ -1,4 +1,3 @@
-//Classe contenent l'adresse d'expédition
 class Address {
     constructor(name, number, street, city, zipCode)
     {
@@ -10,7 +9,6 @@ class Address {
     }
 }
 
-//Classe contenant les éléments de la commande
 class Order {
     constructor(id, article, phoneNumber, address, email) 
     {
@@ -23,7 +21,6 @@ class Order {
     
 }
 
-//Classe du builder, permet de créer, construire en fonction des éléments choisis et retourner une commande
 class OrderBuilder {
     constructor(id, article, address)
     {
@@ -40,6 +37,7 @@ class OrderBuilder {
         return this
     }
     
+    //Permet de créer la commande et de la retourner
     build() {
         return this.order
     }
